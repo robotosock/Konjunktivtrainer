@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Konjunktiv II Trainer</title>
+</head>
+<body>
+	<h1>Konjunktiv II Trainer</h1>
+	<p>Drücken Sie den Button, um eine neue Aufgabe zu generieren:</p>
+	<button onclick="generate()">Neue Aufgabe</button>
+	<p>Infinitiv Präsens:</p>
+	<p id="verb"></p>
+	<p>Konjunktiv II (3. Person Singular):</p>
+	<input type="text" id="input">
+	<button onclick="check()">Eingabe</button>
+	<script>
+		// Liste von deutschen Verben im Infinitiv Präsens
+		var verbs = [
+  "arbeiten",
+  "backen",
+  "befehlen",
+  "beginnen",
+  "bergen",
+  "beschreiben",
+  "besuchen",
+  "bieten",
+  "bleiben",
+  "braten",
+  "brechen",
+  "bringen",
+  "denken",
+  "empfehlen",
+  "essen",
+  "fahren",
+  "fallen",
+  "fangen",
+  "finden",
+  "fliegen",
+  "fliehen",
+  "fließen",
+  "geben",
+  "gehen",
+  "haben",
+  "halten",
+  "hängen",
+  "heben",
+  "heißen",
+  "helfen",
+  "kennen",
+  "kommen",
+  "können",
+  "laden",
+  "lassen",
+  "laufen",
+  "leiden",
+  "lesen",
+  "liegen",
+  "mögen",
+  "nehmen",
+  "raten",
+  "reißen",
+  "rennen",
+  "sagen",
+  "schaffen",
+  "schlagen",
+  "schließen",
+  "schreiben",
+  "schwimmen",
+  "sehen",
+  "sein",
+  "singen",
+  "sitzen",
+  "sprechen",
+  "stehen",
+  "stehen",
+  "stehen",
+  "tragen",
+  "treffen",
+  "tun",
+  "vergessen",
+  "verlassen",
+  "verlieren",
+  "versprechen",
+  "wachsen",
+  "wissen",
+  "wollen",
+  "ziehen",
+  "zweifeln"
+];
+
+		// Funktion, um ein zufälliges Verb aus der Liste auszuwählen
+		function getRandomVerb() {
+			var index = Math.floor(Math.random() * verbs.length);
+			return verbs[index];
+		}
+
+		// Funktion, um eine neue Aufgabe zu generieren
+		function generate() {
+			// Zufälliges Verb auswählen
+			var verb = getRandomVerb();
+			// Verb in das HTML einfügen
+			document.getElementById("verb").innerHTML = verb;
+			// Eingabefeld leeren
+			document.getElementById("input").value = "";
+		}
+
+		// Funktion, um die Eingabe zu überprüfen
+		function check() {
+			// Eingegebener Konjunktiv II
+			var input = document.getElementById("input").value;
+			// Richtiger Konjunktiv II
+			var verb = document.getElementById("verb").innerHTML;
+			var correct = verb + "e";
+			// Überprüfen, ob die Eingabe richtig ist
+			if (input == correct) {
+				alert("Richtig!");
+			} else {
+				alert("Leider falsch!");
+			}
+			// Neue Aufgabe generieren
+			generate();
+		}
+
+		// Beim Laden der Seite die erste Aufgabe generieren
+		window.onload = generate;
+	</script>
+</body>
+</html>
